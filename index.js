@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const PORT = process.env.PORT || 3030;
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -57,6 +59,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log('Server listening on port 3000');
+server.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
 });
