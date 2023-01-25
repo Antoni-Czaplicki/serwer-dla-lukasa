@@ -7,6 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path'); // this is needed to serve the HTML files
+const PORT = process.env.PORT || 3030
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -69,6 +70,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(3000, () => {
-    console.log('Server listening on port 3000');
+server.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
 });
